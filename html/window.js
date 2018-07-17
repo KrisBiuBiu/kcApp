@@ -1,8 +1,8 @@
 apiready = function () {
     // $api.fixStatusBar( $api.dom('header') );
     api.setStatusBarStyle({
-        style: 'dark',
-        color: '#6ab494'
+        style: 'light',
+        color: '#03a9f4'
     });
     funIniGroup();
 }
