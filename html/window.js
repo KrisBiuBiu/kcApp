@@ -2,7 +2,7 @@ apiready = function () {
     // $api.fixStatusBar( $api.dom('header') );
     api.setStatusBarStyle({
         style: 'light',
-        color: '#6ab494'
+        color: '#03a9f4'
     });
     funIniGroup();
 }

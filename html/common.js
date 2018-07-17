@@ -21,5 +21,5 @@ function appAPI(url, method, data) {
 
 function debug(data) {
   var body = document.getElementsByTagName('body')[0];
-  body.innerHTML += JSON.stringify(data);
+  body.innerHTML += '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
 }
