@@ -1,7 +1,7 @@
 apiready = function () {
     // $api.fixStatusBar( $api.dom('header') );
     api.setStatusBarStyle({
-        style: 'dark',
+        style: 'light',
         color: '#6ab494'
     });
     funIniGroup();
@@ -10,13 +10,15 @@ apiready = function () {
 function funIniGroup(){
     var eHeaderLis = $api.domAll('footer div i');
     // var eHeaderLis = $api.domAll('header li'),
+    var frameWinFootNames = ['lastest','forum','message','me']
+    var frameWinFootHtmls = ['./lastest/index.html','./forum/index.html','./message/index.html','./me/index.html'];
     var frames = [];
     var eHeaderLisLength = eHeaderLis.length;
 
     for (var i = 0; i < eHeaderLisLength; i++) {
         frames.push( {
-            name: 'frame'+i,
-            url: './html/frame'+i+'.html',
+            name: frameWinFootNames[i],
+            url: frameWinFootHtmls[i],
             bgColor : 'rgba(0,0,0,.2)',
             bounces:true
         } );
