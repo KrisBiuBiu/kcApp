@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+      <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+      <title>底部导航</title>
+      <link rel="stylesheet" type="text/css" href="./modules/api/api.css"/>
+      <link rel="stylesheet" href="./modules/font-awesome-4.7.0/css/font-awesome.css">
+      <link rel="stylesheet" type="text/css" href="./modules/api/style.css"/>
+      <link rel="stylesheet" type="text/css" href="./modules/aui/aui.css"/>
+      <link rel="stylesheet" type="text/css" href="./style.css"/>
+  </head>
+  <body>
+    <header class="aui-bar aui-bar-nav">
+      <!-- 先隐藏起侧滑按钮 -->
+        <!-- <div class="aui-pull-left aui-btn aui-btn-outlined">
+            <span class="aui-iconfont aui-icon-menu"></span>
+        </div> -->
+        <div class="aui-title">科创论坛</div>
+        <div class="aui-pull-right aui-btn aui-btn-outlined">
+            <span class="aui-iconfont aui-icon-search"></span>
+        </div>
+    </header>
+    <div id="main" class="aui-content">
+
+    </div>
+    <footer class="aui-bar aui-bar-tab">
+        <div class="aui-bar-tab-item aui-active" onclick="randomSwitchBtn( this );" tapmode>
+            <i class="fa fa-clock-o"></i>
+            <div class="aui-bar-tab-label">最新</div>
+        </div>
+        <div class="aui-bar-tab-item" onclick="randomSwitchBtn( this );" tapmode>
+            <i class="fa fa-list"></i>
+            <div class="aui-bar-tab-label">分类</div>
+        </div>
+        <div class="aui-bar-tab-item" onclick="randomSwitchBtn( this );" tapmode>
+            <div class="aui-badge">99</div>
+            <i class="fa fa-comments-o"></i>
+            <div class="aui-bar-tab-label">信息</div>
+        </div>
+        <div class="aui-bar-tab-item" onclick="randomSwitchBtn( this );" tapmode>
+            <div class="aui-dot"></div>
+            <i class="fa fa-user-o"></i>
+            <div class="aui-bar-tab-label">我的</div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="./modules/api/api.js"></script>
+    <script type="text/javascript" src="./window.js"></script>
+  </body>
+</html>
