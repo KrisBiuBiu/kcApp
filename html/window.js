@@ -1,5 +1,10 @@
 apiready = function () {
     // $api.fixStatusBar( $api.dom('header') );
+    api.setPrefs({
+      key: 'host',
+    //   value: 'https://www.kechuang.org'
+    value: 'http://192.168.11.111:9000'
+    })
     api.setStatusBarStyle({
         style: 'light',
         color: '#03a9f4'

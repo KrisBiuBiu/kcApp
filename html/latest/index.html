@@ -9,105 +9,14 @@
         <link rel="stylesheet" type="text/css" href="../modules/api/style.css"/>
         <link rel="stylesheet" type="text/css" href="../modules/aui/css/aui.css"/>
         <link rel="stylesheet" type="text/css" href="../modules/aui/css/aui-slide.css" />
+        <link rel="stylesheet" href="./index.css">
     </head>
     <body>
     <div id="aui-slide">
-        <div class="aui-slide-wrap" >
-            <div class="aui-slide-node">
-                <div class="aui-grid">
-                    <div class="aui-row">
-                        <div class="aui-col-xs-4">
-                            <div class="aui-badge">88</div>
-                            <i class="aui-iconfont aui-icon-home"></i>
-                            <div class="aui-grid-label">首页</div>
-                        </div>
-                        <div class="aui-col-xs-4">
-                            <i class="aui-iconfont aui-icon-gear"></i>
-                            <div class="aui-grid-label">设置</div>
-                        </div>
-                        <div class="aui-col-xs-4">
-                            <i class="aui-iconfont aui-icon-map"></i>
-                            <div class="aui-grid-label">地图</div>
-                        </div>
-                        <div class="aui-col-xs-4">
-                            <i class="aui-iconfont aui-icon-calendar"></i>
-                            <div class="aui-grid-label">日历</div>
-                        </div>
-                        <div class="aui-col-xs-4">
-                            <div class="aui-badge"></div>
-                            <i class="aui-iconfont aui-icon-date"></i>
-                            <div class="aui-grid-label">日期</div>
-                        </div>
-                        <div class="aui-col-xs-4">
-                            <div class="aui-dot"></div>
-                            <i class="aui-iconfont aui-icon-cart"></i>
-                            <div class="aui-grid-label">购物车</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="aui-slide-node aui-slide-node-middle aui-slide-node-center">
-                <div class="aui-content-padded">
-                    <span class="aui-text-danger">AUI Slide</span> 轮播组件不只局限于放置图片，可以自定义内容，分页样式有圆点(dot)，线条(line),结合AUI Flex来实现图片及内容的水平、垂直居中
-                </div>
-            </div>
-            <div class="aui-slide-node aui-bg-warning aui-slide-node-middle aui-slide-node-center">
-                <div class="aui-content-padded">
-                    <span class="aui-text-danger">AUI Slide</span>提供了常用的配置属性，可以自定义宽度，高度，自动播放，分页器样式等，支持无缝循环轮播
-                </div>
-            </div>
-            <div class="aui-slide-node bg-dark">
-                <img src="../../image/l1.png" />
-            </div>
-            <div class="aui-slide-node bg-dark">
-                <img src="../../image/l2.png" />
-            </div>
-            <div class="aui-slide-node bg-dark">
-                <img src="../../image/l3.png" />
-            </div>
-        </div>
-        <div class="aui-slide-page-wrap"><!--分页容器--></div>
-    </div>
-    <div id="aui-slide2">
-        <div class="aui-slide-wrap" >
-            <div class="aui-slide-node aui-slide-node-middle aui-slide-node-center">
-                <div class="aui-content aui-padded-15">
-                    <span class="aui-text-danger">AUI Slide</span>会让你更方便让你布局轮播效果
-                </div>
-            </div>
-            <div class="aui-slide-node aui-slide-node-middle aui-slide-node-center">
-                <div class="aui-content aui-padded-15">
-                    <span class="aui-text-success">AUI Slide</span>更好的支持循环滑动切换
-                </div>
-            </div>
-        </div>
-        <div class="aui-slide-page-wrap"><!--分页容器--></div>
-    </div>
-    <!--<div id="aui-slide2">
-        <div class="aui-slide-wrap" >
-            <div class="aui-slide-node aui-slide-node-middle aui-slide-node-center">
-                <div class="aui-content aui-padded-15">
-                    <span class="aui-text-danger">AUI Slide</span>会让你更方便让你布局轮播效果
-                </div>
-            </div>
-            <div class="aui-slide-node aui-slide-node-middle aui-slide-node-center">
-                <div class="aui-content aui-padded-15">
-                    <span class="aui-text-success">AUI Slide</span>更好的支持循环滑动切换
-                </div>
-            </div>
-        </div>
-        <div class="aui-slide-page-wrap">&lt;!&ndash;分页容器&ndash;&gt;</div>
-    </div>-->
-    <div id="aui-slide3">
-        <div class="aui-slide-wrap" >
-            <div class="aui-slide-node bg-dark">
-                <img src="../../image/l1.png" />
-            </div>
-            <div class="aui-slide-node bg-dark">
-                <img src="../../image/l2.png" />
-            </div>
-            <div class="aui-slide-node bg-dark">
-                <img src="../../image/l3.png" />
+        <div class="aui-slide-wrap">
+            <div class="aui-slide-node bg-dark" v-for="thread in ads" v-bind:onclick="thread.onclick">
+                <div class="ad-title">{{thread.firstPost.t}}</div>
+                <img v-bind:src="thread.src"/>
             </div>
         </div>
         <div class="aui-slide-page-wrap"><!--分页容器--></div>
@@ -115,6 +24,7 @@
         <script src="../modules/promise/promise.min.js" charset="utf-8"></script>
         <script src="../common.js" charset="utf-8"></script>
         <script src="../modules/aui/js/aui-slide.js" charset="utf-8"></script>
+        <script src="../modules/vue/vue.js" charset="utf-8"></script>
         <script src="./index.js" charset="utf-8"></script>
     </body>
 </html>

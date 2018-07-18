@@ -23,3 +23,7 @@ function debug(data) {
   var body = document.getElementsByTagName('body')[0];
   body.innerHTML += '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
 }
+
+function openThread(tid) {
+    alert(tid);
+}
