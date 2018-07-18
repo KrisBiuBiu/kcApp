@@ -38,6 +38,7 @@ apiready = function() {
         "pageShow":true,
         "pageStyle":'dot',
         'dotPosition':'center'
+
     });
     var appLatestThreads = new Vue({
         el: '#latest-threads',
