@@ -19,7 +19,7 @@ apiready = function() {
     })
 
     function currentFun(index) {
-        console.log(index);
+        // console.log(index);
     }
     var slide2 = new auiSlide({
         container:document.getElementById("aui-slide2"),
@@ -43,5 +43,5 @@ apiready = function() {
         "pageStyle":'line',
         'dotPosition':'center'
     })
-    console.log(slide3.pageCount());
+    // console.log(slide3.pageCount());
 }
