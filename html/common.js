@@ -27,3 +27,7 @@ function debug(data) {
 function openThread(tid) {
     alert(tid);
 }
+
+function openUser(uid) {
+    alert(uid);
+}
