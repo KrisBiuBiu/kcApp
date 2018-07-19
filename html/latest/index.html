@@ -9,54 +9,28 @@
         <link rel="stylesheet" type="text/css" href="../modules/api/style.css"/>
         <link rel="stylesheet" type="text/css" href="../modules/aui/css/aui.css"/>
         <link rel="stylesheet" type="text/css" href="../modules/aui/css/aui-slide.css" />
+        <link rel="stylesheet" href="../modules/font-awesome-4.7.0/css/font-awesome.css">
         <link rel="stylesheet" href="../style.css">
-        <link rel="stylesheet" href="./index.css">
     </head>
     <body>
-        <div id="aui-slide">
-            <div class="aui-slide-wrap">
-                <div class="aui-slide-node bg-dark" v-for="thread in ads" v-bind:onclick="thread.onclick">
-                    <div class="ad-title">{{thread.firstPost.t}}</div>
-                    <img v-bind:src="thread.src"/>
-                </div>
-            </div>
-            <div class="aui-slide-page-wrap"><!--分页容器--></div>
+      <div id="app">
+        <ads v-bind:ads="ads"></ads>
+        <div class="small-header">最新文章</div>
+        <div class="aui-content aui-margin-b-15">
+          <!-- 组件-帖子列表 -->
+          <thread-list v-bind:threads="threads"></thread-list>
         </div>
-        <div class="aui-content aui-margin-b-15" id='latest-threads'>
-            <ul class="aui-list aui-media-list">
-                <li class="aui-list-header">
-                    最新文章
-                </li>
-
-                <li class="aui-list-item" v-for="thread in threads" style='padding-right: 0.75rem;'>
-                    <div class="aui-info" style="padding-bottom: 0.2rem;">
-                        <div class="aui-info-item" v-bind:onclick='thread.user.onclick'>
-                            <img v-bind:src="thread.user.avatarSrc" style="width:1rem" class="aui-img-round" /><span class="aui-margin-l-5">{{thread.firstPost.user.username}}</span>
-                        </div>
-                        <div class="aui-info-item">{{thread.toc}}</div>
-                    </div>
-                    <div class="aui-list-item-text">
-                        <div class="aui-list-item-title thread-list-title" v-bind:style="thread.titleStyle" v-bind:onclick="thread.onclick">{{thread.firstPost.t}}</div>
-                    </div>
-                    <div class="aui-media-list-item-inner">
-                        <div class="aui-list-item-media" v-bind:style="thread.imgStyle">
-                            <img v-bind:src="thread.imgSrc">
-                        </div>
-                        <div class="aui-list-item-inner">
-                            <div class="aui-list-item-text" v-bind:onclick="thread.onclick">
-                                {{thread.firstPost.c.slice(0, 20)}}
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <script src="../modules/promise/promise.min.js" charset="utf-8"></script>
-        <script src="../common.js" charset="utf-8"></script>
-        <script src="../modules/aui/js/aui-slide.js" charset="utf-8"></script>
-        <script src="../modules/vue/vue.js" charset="utf-8"></script>
-        <script src="../modules/moment/moment.js" charset="utf-8"></script>
-        <script src="../modules/moment/zh-cn.js" charset="utf-8"></script>
-        <script src="./index.js" charset="utf-8"></script>
+        <!-- 组件-加载动画 -->
+        <loading></loading>
+      </div>
+      <script src="../modules/api/api.js" charset="utf-8"></script>
+      <!-- <script src="../modules/promise/promise.min.js" charset="utf-8"></script> -->
+      <script src="../modules/aui/js/aui-slide.js" charset="utf-8"></script>
+      <script src="../modules/aui/js/aui-pull-refresh.js" charset="utf-8"></script>
+      <script src="../modules/vue/vue.js" charset="utf-8"></script>
+      <script src="../modules/moment/moment.js" charset="utf-8"></script>
+      <script src="../modules/moment/zh-cn.js" charset="utf-8"></script>
+      <script src="../common.js" charset="utf-8"></script>
+      <script src="./index.js" charset="utf-8"></script>
     </body>
 </html>

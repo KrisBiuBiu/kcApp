@@ -2,8 +2,8 @@ apiready = function () {
     // $api.fixStatusBar( $api.dom('header') );
     api.setPrefs({
       key: 'host',
-    //   value: 'https://www.kechuang.org'
-    value: 'http://192.168.11.111:9000'
+      // value: 'https://www.kechuang.org'
+      value: 'http://192.168.11.111:9000'
     })
     api.setStatusBarStyle({
         style: 'light',
@@ -32,8 +32,8 @@ function funIniGroup(){
     frames[0] = {
       name: '最新文章',
       url: './latest/index.html',
-      bgColor: '#f6f6f6',
-      bounces: true
+      bgColor: '#ffffff',
+      bounces: true,
     };
     var mainFrameHeight = $api.dom('body').offsetHeight-$api.dom('footer').offsetHeight-$api.dom("header").offsetHeight
     api.openFrameGroup({

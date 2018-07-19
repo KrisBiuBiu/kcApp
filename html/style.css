@@ -1,6 +1,71 @@
 footer{
-  border-top: 1px solid #f0f0f0;
+  border-top: 1px solid #eeeeee;
 }
 .thread-list-title{
     font-weight: 700;
+}
+.thread-list-last-post{
+    width: 100%;
+    overflow: hidden;
+}
+.thread-list-last-post div{
+    float: right;
+    max-width: 90%;
+    color: #999999;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    padding: 0.1rem 0.3rem;
+    font-size: 0.6rem;
+}
+.thread-list-last-info{
+    width: 100%;
+    text-align: right;
+    color: #aaaaaa;
+    font-size: 0.7rem;
+    padding-top: 0.2rem;
+}
+.btn-new-post{
+    background-color: #03a9f4;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    line-height: 2rem;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 100;
+}
+.small-header{
+  padding:0.2rem 0.75rem;
+  background-color:#efefef;
+  font-size: 0.6rem;
+}
+.ad-title{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  color: #ffffff;
+  width: 100%;
+  padding: 5px;
+  font-size: 12px;
+}
+
+@keyframes rotate
+{
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+.rotate{
+  animation: rotate 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+#loading{
+  text-align: center;
+  margin: 1rem 0;
+}
+#loading span{
+  font-size: 0.6rem;
+  color: #aaaaaa;
 }
