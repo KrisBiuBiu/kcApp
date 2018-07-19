@@ -13,19 +13,27 @@
 
 <body id="b">
   <header class="aui-bar aui-bar-nav">
-      <div class="aui-pull-left aui-btn">
+      <div class="aui-pull-left aui-btn event-back">
           <span class="aui-iconfont aui-icon-left"></span>
       </div>
       <div class="aui-title">Title</div>
   </header>
+  <div class="aui-tab">
+      <div class="aui-tab-item tapmode aui-active">Item1</div>
+      <div class="aui-tab-item tapmode"><div>fddf</div>Item2</div>
+      <div class="aui-tab-item tapmode">Item3</div>
+      <div class="aui-tab-item tapmode">Item4</div>
+  </div>
 </body>
 
-<script src="../modules/api/api.js" charset="utf-8"></script>
+<script type="text/javascript" src="../modules/api/api.js"></script>
 <script src="./index.js" charset="utf-8"></script>
+<script src="../common.js" charset="utf-8"></script>
 
 <script>
 apiready = function(){
   fnOpenSecondMajorList()
+  fnReadyKeyback()
 }
 </script>
 

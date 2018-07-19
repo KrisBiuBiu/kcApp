@@ -38,7 +38,7 @@ function funIniGroup(){
     var mainFrameHeight = $api.dom('body').offsetHeight-$api.dom('footer').offsetHeight-$api.dom("header").offsetHeight
     api.openFrameGroup({
         name: 'group',
-        scrollEnabled: false,
+        scrollEnabled: true,
         rect: {
             x: 0,
             y: $api.dom('header').offsetHeight,
@@ -48,7 +48,8 @@ function funIniGroup(){
         index: 0,
         frames: frames
     }, function (ret, err) {
-
+      var doms = $api.domAll('footer div.aui-bar-tab-item');
+      fnChangeActive(ret.index,doms,'aui-active')
     });
 }
 
@@ -69,9 +70,4 @@ function randomSwitchBtn( tag ) {
         name: 'group',
         index: index
     });
-}
-
-// 侧滑按钮
-function fnDrawerLayout(){
-
 }
