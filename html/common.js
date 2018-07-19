@@ -22,6 +22,7 @@ function appAPI(url, method, data) {
             resolve(ret);
         }
     });
+  });
 }
 
 function debug(data) {
