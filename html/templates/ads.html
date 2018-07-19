@@ -1,0 +1,9 @@
+<div id="aui-slide">
+    <div class="aui-slide-wrap">
+        <div class="aui-slide-node bg-dark" v-for="thread in ads" v-bind:onclick="thread.onclick">
+            <div class="ad-title">{{thread.firstPost.t}}</div>
+            <img v-bind:src="thread.src"/>
+        </div>
+    </div>
+    <div class="aui-slide-page-wrap"></div>
+</div>
