@@ -48,16 +48,18 @@ function funIniGroup(){
         index: 0,
         frames: frames
     }, function (ret, err) {
-      var doms = $api.domAll('footer div.aui-bar-tab-item');
-      fnChangeActive(ret.index,doms,'aui-active')
+
+      var doms = $api.domAll('footer div.footer-tab');
+      fnChangeActive(ret.index,doms,'aui-active');
     });
 }
 
 // 随意切换按钮
 function randomSwitchBtn( tag ) {
     if( tag == $api.dom('footer div.aui-active') )return;
-    var eFootLis = $api.domAll('footer div.aui-bar-tab-item'),
+    var eFootLis = $api.domAll('footer div.footer-tab'),
         index = 0;
+    // eFootLis.splice(2,1);
     for (var i = 0,len = eFootLis.length; i < len; i++) {
         if( tag == eFootLis[i] ){
             index = i;
