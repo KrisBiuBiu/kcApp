@@ -60,7 +60,7 @@ function fnOpenMajorInfoFrame(){
       url: './secondMajorInfo.html',
       rect: {
           x: 0,
-          y: headerHeight,
+          y: $api.dom("header").offsetHeight,
           w: api.winWidth,
           h: secondMajorHeight
       },
