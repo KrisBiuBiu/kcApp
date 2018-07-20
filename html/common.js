@@ -141,7 +141,7 @@ function print(a, type) {
 
 // 通过name向vue中添加组件
 var initVueTmpByName = function(name, props) {
-  var path = 'widget://html/templates/' + name + '.html';
+  var path = 'widget://templates/' + name + '.html';
   var html = api.readFile({
     sync: true,
     path: path
@@ -163,6 +163,7 @@ function $kcApp(callback) {
 
     // 初始化vue组件
     initVueTmpByName('loading');
+    initVueTmpByName('prompt', ['prompt']);
     initVueTmpByName('ads', ['ads']);
     initVueTmpByName('thread-list', ['threads']);
 

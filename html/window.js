@@ -48,6 +48,7 @@ function funIniGroup(){
         index: 0,
         frames: frames
     }, function (ret, err) {
+
       var doms = $api.domAll('footer div.footer-tab');
       fnChangeActive(ret.index,doms,'aui-active');
     });

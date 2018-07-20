@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-        <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-        <title>云API</title>
-        <link rel="stylesheet" type="text/css" href="../modules/api/api.css"/>
-        <link rel="stylesheet" type="text/css" href="../modules/api/style.css"/>
-        <link rel="stylesheet" type="text/css" href="../modules/aui/css/aui.css"/>
-        <link rel="stylesheet" type="text/css" href="../modules/aui/css/aui-slide.css" />
-        <link rel="stylesheet" href="../modules/font-awesome-4.7.0/css/font-awesome.css">
-        <link rel="stylesheet" href="../style.css">
-    </head>
-    <body>
-      <div id="app">
-        <ads v-bind:ads="ads"></ads>
-        <div class="small-header">最新文章</div>
-        <div class="aui-content aui-margin-b-15">
-          <!-- 组件-帖子列表 -->
-          <thread-list v-bind:threads="threads"></thread-list>
-        </div>
-        <!-- 组件-加载动画 -->
-        <loading></loading>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>云API</title>
+    <link rel="stylesheet" type="text/css" href="../modules/api/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../modules/api/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../modules/aui/css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="../modules/aui/css/aui-slide.css" />
+    <link rel="stylesheet" href="../modules/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="../style.css">
+  </head>
+  <body>
+    <div id="app" v-if="show">
+      <ads v-bind:ads="ads"></ads>
+      <div class="small-header">最新文章</div>
+      <div class="aui-content aui-margin-b-15">
+        <!-- 组件-帖子列表 -->
+        <thread-list v-bind:threads="threads"></thread-list>
       </div>
-      <script src="../modules/api/api.js" charset="utf-8"></script>
-      <!-- <script src="../modules/promise/promise.min.js" charset="utf-8"></script> -->
-      <script src="../modules/aui/js/aui-slide.js" charset="utf-8"></script>
-      <script src="../modules/aui/js/aui-pull-refresh.js" charset="utf-8"></script>
-      <script src="../modules/vue/vue.js" charset="utf-8"></script>
-      <script src="../modules/moment/moment.js" charset="utf-8"></script>
-      <script src="../modules/moment/zh-cn.js" charset="utf-8"></script>
-      <script src="../common.js" charset="utf-8"></script>
-      <script src="./index.js" charset="utf-8"></script>
-    </body>
+      <!-- 组件-加载动画 -->
+      <loading></loading>
+    </div>
+    <script src="../modules/api/api.js" charset="utf-8"></script>
+    <script src="../modules/promise/promise.min.js" charset="utf-8"></script>
+    <script src="../modules/aui/js/aui.js" charset="utf-8"></script>
+    <script src="../modules/aui/js/aui-slide.js" charset="utf-8"></script>
+    <script src="../modules/aui/js/aui-pull-refresh.js" charset="utf-8"></script>
+    <script src="../modules/aui/js/aui-toast.js" charset="utf-8"></script>
+    <script src="../modules/vue/vue.js" charset="utf-8"></script>
+    <script src="../modules/moment/moment.js" charset="utf-8"></script>
+    <script src="../modules/moment/zh-cn.js" charset="utf-8"></script>
+    <script src="../common.js" charset="utf-8"></script>
+    <script src="./index.js" charset="utf-8"></script>
+  </body>
 </html>

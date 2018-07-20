@@ -3,13 +3,20 @@ var paging = {
 }; // 分页
 var host; // 域名
 var app; // vue实列
-var slide;
+var slide; // 轮播
+var toast; // 提示窗
 $kcApp(function() {
+
+  // 新建toast实列
+  api.parseTapmode();
+  toast = new auiToast({});
+
 
   // 新建vue实列
   app = new Vue({
     el: '#app',
     data: {
+      show: false,
       threads: [],
       ads: []
     },
@@ -60,10 +67,20 @@ $kcApp(function() {
       data = JSON.parse(data);
       app.threads = data.threads;
       app.ads = data.ads;
+      app.show = true;
     } catch(err) {}
   }
   // 获取第一次数据
-  loadLatestData();
+  toast.loading({
+    title:"加载中"
+  })
+  loadLatestData(function(err, data) {
+    if(err) {
+
+    } else {
+      toast.hide();
+    }
+  });
 
   //下拉刷新
   api.setRefreshHeaderInfo({
@@ -87,7 +104,13 @@ function addThreads(page, callback) {
   .then(function(data) {
     data.threads = extendThreads(data.threads);
     app.threads = app.threads.concat(data.threads);
-  });
+  })
+  .catch(function(data) {
+    toast.fail({
+      title: '加载失败',
+      duration: 4000
+    });
+  })
 }
 
 function loadLatestData(callback) {
@@ -98,170 +121,19 @@ function loadLatestData(callback) {
     data.ads = extendAds(data.ads);
     app.threads = data.threads;
     app.ads = data.ads;
+    if(!app.show) app.show = true;
     paging = data.paging;
     api.writeFile({
         path: 'fs://latest.txt',
         data: JSON.stringify(data)
     }, function(ret, err){});
-    if(callback) callback();
+    if(callback) callback(undefined, data);
   })
+  .catch(function(data) {
+    toast.fail({
+      title: '加载失败',
+      duration: 4000
+    });
+    if(callback) callback(data);
+  });
 }
-
-/*
-moment.locale('zh-cn');
-var paging;
-$kcApp(function() {
-  // initVueTmp();
-  var host = api.getPrefs({
-      sync: true,
-      key: 'host'
-  });
-  var data, threadsApp, adsApp, slide;
-  api.writeFile({
-      path: 'fs://latest.txt',
-      data: ''
-  }, function(ret, err){
-      if(ret.status){
-
-      }else{
-
-      }
-  });
-
-  api.readFile({
-    path: 'fs://latest.txt'
-  }, function(ret, err){
-    if( ret && ret.data !== ''){
-      try{
-        data = JSON.parse(ret.data);
-        threadsApp = new Vue({
-            el: '#latest-threads',
-            data: {
-              threads: data.threads
-            }
-        });
-        adsApp = new Vue({
-            el: '#aui-slide',
-            data: {
-              ads: data.ads
-            }
-        });
-        slide = new auiSlide({
-            container:document.getElementById("aui-slide"),
-            // "width":300,
-            "height":(api.winWidth*3)/4,
-            "speed":500,
-            "autoPlay": 4000, //自动播放
-            "loop":true,
-            "pageShow":true,
-            "pageStyle":'dot',
-            'dotPosition':'center'
-
-        });
-      } catch(err) {
-        api.writeFile({
-          path: 'fs://latest.txt',
-          data: ''
-        }, function(ret, err){
-          if(ret.status){
-
-          }else{
-
-          }
-        });
-      }
-    }
-    appAPI(host + '', 'GET', {})
-    .then(function(data) {
-      api.addEventListener({
-        name:'scrolltobottom',
-        extra:{
-         threshold:100         //设置距离底部多少距离时触发，默认值为0，数字类型
-        }
-      }, function(ret, err){
-        // showLoading();
-        appAPI(host+'?page='+(paging.page+1), 'GET', {})
-        .then(function(data) {
-          paging = data.paging;
-          var threads = extendThreads(data.threads);
-          threadsApp.threads = threadsApp.threads.concat(threads);
-          // hideLoading();
-        })
-        .catch(function() {
-          // hideLoading();
-          alert('加载出错');
-        })
-      })
-      paging = data.paging;
-      data.threads = extendThreads(data.threads);
-      data.ads = extendAds(data.ads);
-      if(!threadsApp) {
-        print(data.threads, 'obj');
-
-        threadsApp = new Vue({
-            el: '#latest-threads',
-            data: {
-              threads: data.threads
-            }
-        });
-      } else {
-        threadsApp.threads = data.threads;
-      }
-      if(!adsApp) {
-        adsApp = new Vue({
-            el: '#aui-slide',
-            data: {
-              ads: data.ads
-            }
-        });
-      } else {
-        adsApp.ads = data.ads;
-      }
-      if(!slide) {
-        slide = new auiSlide({
-            container:document.getElementById("aui-slide"),
-            // "width":300,
-            "height":(api.winWidth*3)/4,
-            "speed":500,
-            "autoPlay": 4000, //自动播放
-            "loop":true,
-            "pageShow":true,
-            "pageStyle":'dot',
-            'dotPosition':'center'
-
-        });
-      }
-
-      api.writeFile({
-          path: 'fs://latest.txt',
-          data: JSON.stringify(data)
-      }, function(ret, err){
-          if(ret.status){
-
-          }else{
-
-          }
-      });
-
-    })
-    .catch(function(data) {
-      // debug(data);
-    })
-  });
-  api.setRefreshHeaderInfo({
-    loadingImg: '../images/1.gif',
-    bgColor: '#ccc',
-    textColor: '#fff',
-    textDown: '下拉刷新...',
-    textUp: '松开刷新...',
-    textLoading: '刷新中...',
-    showTime: false
-}, function(ret, err) {
-    //在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
-    setTimeout(function() {
-      api.refreshHeaderLoadDone();
-    }, 2000)
-});
-
-})
-*/

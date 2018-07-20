@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+        <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+        <title>云API</title>
+        <link rel="stylesheet" type="text/css" href="../modules/api/api.css"/>
+        <link rel="stylesheet" type="text/css" href="../modules/api/style.css"/>
+        <link rel="stylesheet" type="text/css" href="../modules/aui/css/aui.css"/>
+        <link rel="stylesheet" type="text/css" href="../modules/aui/css/aui-slide.css" />
+        <link rel="stylesheet" href="../modules/font-awesome-4.7.0/css/font-awesome.css">
+        <link rel="stylesheet" href="../style.css">
+    </head>
+    <body>
+      <div id="app">
+        <!-- <img src="../images/bg1.jpg"> -->
+        <div class="aui-card-list">
+            <div class="aui-card-list-header aui-card-list-user aui-border-b">
+                <div class="aui-card-list-user-avatar">
+                    <img src="../image/demo4.png" class="aui-img-round" />
+                </div>
+                <div class="aui-card-list-user-name">
+                    <div>AUI</div>
+                    <small>1天前</small>
+                </div>
+                <div class="aui-card-list-user-info">北京朝阳</div>
+            </div>
+            <div class="aui-card-list-content-padded">
+                <img src="../image/l2.png" />
+            </div>
+            <div class="aui-card-list-footer aui-border-t">
+                <div><i class="aui-iconfont aui-icon-note"></i> 666</div>
+                <div><i class="aui-iconfont aui-icon-laud"></i> 888</div>
+                <div><i class="aui-iconfont aui-icon-star"></i> 888</div>
+            </div>
+        </div>
+        <div class="user-info">
+          <img v-bind:src="user.src">
+        </div>
+      </div>
+      <script src="../modules/api/api.js" charset="utf-8"></script>
+      <script src="../modules/promise/promise.min.js" charset="utf-8"></script>
+      <script src="../modules/aui/js/aui-slide.js" charset="utf-8"></script>
+      <script src="../modules/aui/js/aui-pull-refresh.js" charset="utf-8"></script>
+      <script src="../modules/vue/vue.js" charset="utf-8"></script>
+      <script src="../modules/moment/moment.js" charset="utf-8"></script>
+      <script src="../modules/moment/zh-cn.js" charset="utf-8"></script>
+      <script src="../common.js" charset="utf-8"></script>
+      <script src="./index.js" charset="utf-8"></script>
+    </body>
+</html>

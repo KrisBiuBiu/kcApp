@@ -1,6 +1,9 @@
 footer{
   border-top: 1px solid #eeeeee;
 }
+.text-center{
+  text-align: center;
+}
 .thread-list-title{
     font-weight: 700;
 }
@@ -61,9 +64,38 @@ footer{
   animation-iteration-count: infinite;
 }
 
+.aui-slide-page-wrap {
+    z-index: 10;
+}
+.aui-toast{
+  z-index: 11
+}
+.prompt{
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  bottom: 0;
+  left: 0
+}
+.prompt>div{
+  width: 100%;
+  padding: 0.2rem 0.5rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #ffffff;
+}
+.prompt .prompt-info{
+  color: #009688;
+}
+.prompt .prompt-warning{
+  color: #ffc107;
+}
+.prompt .prompt-error{
+  color: #e51c23;
+}
+
 #loading{
   text-align: center;
-  margin: 1rem 0;
+  padding: 0.2rem 0 1rem 0;
 }
 #loading span{
   font-size: 0.6rem;
