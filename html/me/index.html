@@ -11,33 +11,110 @@
         <link rel="stylesheet" type="text/css" href="../modules/aui/css/aui-slide.css" />
         <link rel="stylesheet" href="../modules/font-awesome-4.7.0/css/font-awesome.css">
         <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="./index.css">
     </head>
     <body>
       <div id="app">
-        <!-- <img src="../images/bg1.jpg"> -->
-        <div class="aui-card-list">
-            <div class="aui-card-list-header aui-card-list-user aui-border-b">
-                <div class="aui-card-list-user-avatar">
-                    <img src="../image/demo4.png" class="aui-img-round" />
-                </div>
-                <div class="aui-card-list-user-name">
-                    <div>AUI</div>
-                    <small>1天前</small>
-                </div>
-                <div class="aui-card-list-user-info">北京朝阳</div>
+        <!-- 用户已登录 -->
+        <ul class="aui-list aui-media-list me" v-if="!!user">
+          <li class="aui-list-item aui-list-item-arrow">
+              <div class="aui-media-list-item-inner">
+                  <div class="aui-list-item-media">
+                      <img v-bind:src="user.src">
+                  </div>
+                  <div class="aui-list-item-inner">
+                      <div class="aui-list-item-text">
+                          <div class="aui-list-item-title me-username">{{user.username}}</div>
+                      </div>
+                      <user-grade v-bind:grade="user.grade"></user-grade>
+                      <div class="aui-list-item-text aui-ellipsis-2 me-description">
+                        {{user.description}}
+                      </div>
+                  </div>
+              </div>
+          </li>
+        </ul>
+        <!-- 用户未登录 -->
+        <ul class="aui-list aui-media-list me" v-else>
+          <li class="aui-list-item aui-list-item-arrow">
+              <div class="aui-media-list-item-inner">
+                  <div class="aui-list-item-media">
+                      <img src="../../images/default_avatar.gif">
+                  </div>
+                  <div class="aui-list-item-inner">
+                      <div class="aui-list-item-text">
+                          <div class="aui-list-item-title" style='font-size:1rem;margin-top: 0.3rem;'>登录/注册</div>
+                      </div>
+
+                      <div class="aui-list-item-text aui-ellipsis-2" style="font-size:0.8rem;margin-top: 0.2rem;">
+                        登陆后可阅读更多内容~
+                      </div>
+                  </div>
+              </div>
+          </li>
+        </ul>
+
+        <ul class="aui-list aui-list-in me-list me" style="margin-top: 0.4rem;">
+          <li class="aui-list-item aui-list-item-arrow me-list-li">
+            <div class="aui-list-item-label-icon">
+                <i class="fa fa-address-card-o"></i>
             </div>
-            <div class="aui-card-list-content-padded">
-                <img src="../image/l2.png" />
+            <div class="aui-list-item-inner">
+                我的名片
             </div>
-            <div class="aui-card-list-footer aui-border-t">
-                <div><i class="aui-iconfont aui-icon-note"></i> 666</div>
-                <div><i class="aui-iconfont aui-icon-laud"></i> 888</div>
-                <div><i class="aui-iconfont aui-icon-star"></i> 888</div>
+          </li>
+          <li class="aui-list-item aui-list-item-arrow me-list-li">
+            <div class="aui-list-item-label-icon">
+                <i class="fa fa-window-maximize"></i>
             </div>
-        </div>
-        <div class="user-info">
-          <img v-bind:src="user.src">
-        </div>
+            <div class="aui-list-item-inner">
+                我的专栏
+            </div>
+          </li>
+          <li class="aui-list-item aui-list-item-arrow me-list-li">
+            <div class="aui-list-item-label-icon">
+                <i class="fa fa-folder-o"></i>
+            </div>
+            <div class="aui-list-item-inner">
+                我的收藏
+            </div>
+          </li>
+          <li class="aui-list-item aui-list-item-arrow me-list-li">
+            <div class="aui-list-item-label-icon">
+                <i class="fa fa-inbox"></i>
+            </div>
+            <div class="aui-list-item-inner">
+                我的草稿
+            </div>
+          </li>
+        </ul>
+        <ul class="aui-list aui-list-in me-list me" style="margin-top: 0.4rem;">
+          <li class="aui-list-item aui-list-item-arrow me-list-li">
+              <div class="aui-list-item-label-icon">
+                  <i class="fa fa-cog"></i>
+              </div>
+              <div class="aui-list-item-inner">
+                  设置
+              </div>
+          </li>
+          <li class="aui-list-item aui-list-item-arrow me-list-li">
+              <div class="aui-list-item-label-icon">
+                  <i class="fa fa-question-circle-o"></i>
+              </div>
+              <div class="aui-list-item-inner">
+                  上报问题
+              </div>
+          </li>
+          <li class="aui-list-item aui-list-item-arrow me-list-li">
+              <div class="aui-list-item-label-icon">
+                  <i class="fa fa-refresh"></i>
+              </div>
+              <div class="aui-list-item-inner">
+                  检查更新
+                  <span style='float: right;color: #aaaaaa;'>0.0.1</span>
+              </div>
+          </li>
+        </ul>
       </div>
       <script src="../modules/api/api.js" charset="utf-8"></script>
       <script src="../modules/promise/promise.min.js" charset="utf-8"></script>

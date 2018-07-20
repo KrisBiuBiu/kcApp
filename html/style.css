@@ -101,3 +101,14 @@ footer{
   font-size: 0.6rem;
   color: #aaaaaa;
 }
+
+.user-grade img{
+  display: inline-block;
+  vertical-align: middle;
+  height: 0.6rem;
+  margin-top: -2px;
+}
+.user-grade span{
+  font-size: 0.6rem;
+  color: #aaaaaa;
+}

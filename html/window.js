@@ -24,7 +24,7 @@ function funIniGroup(){
         frames.push( {
             name: frameWinFootNames[i],
             url: frameWinFootHtmls[i],
-            bgColor : 'rgba(0,0,0,.2)',
+            // bgColor : 'rgba(0,0,0,.2)',
             bounces:true
         } );
     }
@@ -32,8 +32,8 @@ function funIniGroup(){
     frames[0] = {
       name: '最新文章',
       url: './latest/index.html',
-      bgColor: '#ffffff',
-      bounces: true,
+      // bgColor: '#ffffff',
+      bounces: true
     };
     var mainFrameHeight = $api.dom('body').offsetHeight-$api.dom('footer').offsetHeight-$api.dom("header").offsetHeight
     api.openFrameGroup({

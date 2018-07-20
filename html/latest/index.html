@@ -15,13 +15,11 @@
   <body>
     <div id="app" v-if="show">
       <ads v-bind:ads="ads"></ads>
-      <div class="small-header">最新文章</div>
-      <div class="aui-content aui-margin-b-15">
-        <!-- 组件-帖子列表 -->
-        <thread-list v-bind:threads="threads"></thread-list>
-      </div>
+      <small-header v-bind:text="smallHeader.threadList"></small-header>
+      <!-- 组件-帖子列表 -->
+      <thread-list v-bind:threads="threads"></thread-list>
       <!-- 组件-加载动画 -->
-      <loading></loading>
+      <loading v-bind:loading="loading"></loading>
     </div>
     <script src="../modules/api/api.js" charset="utf-8"></script>
     <script src="../modules/promise/promise.min.js" charset="utf-8"></script>

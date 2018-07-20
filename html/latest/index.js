@@ -11,6 +11,10 @@ $kcApp(function() {
   api.parseTapmode();
   toast = new auiToast({});
 
+  // 加载动画
+  toast.loading({
+    title:"加载中"
+  });
 
   // 新建vue实列
   app = new Vue({
@@ -18,21 +22,19 @@ $kcApp(function() {
     data: {
       show: false,
       threads: [],
-      ads: []
+      ads: [],
+      smallHeader: {
+        threadList: '最新文章'
+      },
+      loading: {
+        showIcon: false,
+        title: ' '
+      }
+    },
+    created: function() {
+      addEventScrolltobottom();
     },
     updated: function() {
-      // 滑动到底部获取数据
-      api.addEventListener({
-        name:'scrolltobottom',
-        extra:{
-         threshold:100         //设置距离底部多少距离时触发，默认值为0，数字类型
-        }
-      }, function(ret, err){
-        api.removeEventListener({
-            name: 'scrolltobottom'
-        });
-        addThreads(paging.page);
-      });
       // 轮播图配置
       if(!slide) {
         slide = new auiSlide({
@@ -59,7 +61,7 @@ $kcApp(function() {
   // 取出上一次的浏览数据
   var data = api.readFile({
     sync: true,
-    path: 'fs://aaa.txt'
+    path: 'fs://latest.txt'
   });
   // 判断数据是否可用
   if(data) {
@@ -71,9 +73,7 @@ $kcApp(function() {
     } catch(err) {}
   }
   // 获取第一次数据
-  toast.loading({
-    title:"加载中"
-  })
+
   loadLatestData(function(err, data) {
     if(err) {
 
@@ -92,6 +92,7 @@ $kcApp(function() {
     textLoading: '刷新中...',
     showTime: false
   }, function(ret, err) {
+      toast.hide();
       loadLatestData(function() {
         api.refreshHeaderLoadDone();
       });
@@ -99,17 +100,16 @@ $kcApp(function() {
 
 });
 
-function addThreads(page, callback) {
-  appAPI(host, 'GET', {page: page+1})
+function addThreads(callback) {
+  appAPI(host, 'GET', {page: paging.page+1})
   .then(function(data) {
     data.threads = extendThreads(data.threads);
     app.threads = app.threads.concat(data.threads);
+    paging = data.paging;
+    callback();
   })
   .catch(function(data) {
-    toast.fail({
-      title: '加载失败',
-      duration: 4000
-    });
+    callback(data);
   })
 }
 
@@ -135,5 +135,30 @@ function loadLatestData(callback) {
       duration: 4000
     });
     if(callback) callback(data);
+  });
+}
+
+function addEventScrolltobottom() {
+  // 滑动到底部获取数据
+  api.addEventListener({
+    name:'scrolltobottom',
+    extra:{
+     threshold:100         //设置距离底部多少距离时触发，默认值为0，数字类型
+    }
+  }, function(ret, err){
+    toast.hide();
+    // 加载中 提示
+    app.loading.showIcon = true;
+    app.loading.title = '加载中...';
+    api.removeEventListener({
+        name: 'scrolltobottom'
+    });
+    addThreads(function(err) {
+      addEventScrolltobottom();
+      if(err) {
+        app.loading.showIcon = false;
+        app.loading.title = '加载失败';
+      }
+    });
   });
 }
