@@ -1,6 +1,6 @@
 var user = {
     "username" : "SPARK",
-    "description" : "上周末出去玩，在一栋建筑废墟里发现一窝野鸽子，准确地说应该是珠颈斑鸠。大鸟怂得不行，看见我离得还十多米就吓跑了。等我玩完一圈转回来，发现大鸟仍然不知去向，遂决定将蛋带回家，看能不能人工孵出小鸽子。 这个是野鸽子窝，很、非常以及极其的简陋，要不是有俩蛋在里面，真看不出来是个鸟窝 发愁怎么带回来，突然想起书包里",
+    "description" : "这家伙一点也不懒，他认认真真写了一些东西。",
     "color" : "#dedede",
     "uid" : "74185",
     "usernameLowerCase" : "spark",
@@ -30,7 +30,12 @@ var user = {
     "volumeB" : true,
     "violationCount" : 0,
     "dailyLoginCount" : 5,
-    "digestPostsCount" : 4
+    "digestPostsCount" : 4,
+    grade: {
+      _id: 1,
+      displayName: '千古风流',
+      src: 'https://www.kechuang.org/default/v5l.png'
+    }
 }
 
 var host; // 域名
@@ -47,7 +52,7 @@ $kcApp(function() {
   var app = new Vue({
     el: '#app',
     data: {
-      user: user
+      user: ''
     }
   });
 });

@@ -162,12 +162,13 @@ function $kcApp(callback) {
     moment.locale('zh-cn');
 
     // 初始化vue组件
-    initVueTmpByName('loading');
+    initVueTmpByName('loading', ['loading']);
+    initVueTmpByName('small-header', ['text']);
     initVueTmpByName('prompt', ['prompt']);
     initVueTmpByName('ads', ['ads']);
     initVueTmpByName('thread-list', ['threads']);
     initVueTmpByName('forums-index', ['forums']);
-
+    initVueTmpByName('user-grade', ['grade']);
     callback();
   }
 }
