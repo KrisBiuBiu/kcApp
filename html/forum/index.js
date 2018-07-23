@@ -1,9 +1,27 @@
+var app;
+
+$kcApp(function(){
+  appAPI("http://192.168.11.43:1086/f","GET",{})
+  .then(function(data){
+    app = new Vue({
+      el: '#forumsIndex',
+      data: {
+        forums: data.forums
+      }
+    })
+  })
+  .catch(function(data) {
+    print(data, 'obj')
+  })
+})
+
 var firstMajorFids; // 获取所有专业fid
 var firstMajorNames; // 获取所有一级专业名称
 
 
 // 进入二级专业，打开新的window，设置header
-function fnChangeSecondMajorHeader(){
+function fnChangeSecondMajorHeader(index){
+  alert(index)
   api.openWin({
       name: 'secondMajor_header',
       url: './secondMajor_header.html',
@@ -73,3 +91,6 @@ function fnOpenMajorInfoFrame(){
       hScrollBarEnabled: true
   });
 }
+
+
+//

@@ -6,7 +6,7 @@ var app; // vue实列
 var slide; // 轮播
 var toast; // 提示窗
 $kcApp(function() {
-
+  
   // 新建toast实列
   api.parseTapmode();
   toast = new auiToast({});

@@ -166,6 +166,7 @@ function $kcApp(callback) {
     initVueTmpByName('prompt', ['prompt']);
     initVueTmpByName('ads', ['ads']);
     initVueTmpByName('thread-list', ['threads']);
+    initVueTmpByName('forums-index', ['forums']);
 
     callback();
   }

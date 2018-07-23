@@ -1,0 +1,42 @@
+<ul class="aui-list aui-media-list aui-margin-t-20">
+  <div v-for="forum in forums">
+  <li class="aui-list-item">
+      <div class="aui-list-item-inner aui-list-item-arrow" v-bind:onclick="'fnChangeSecondMajorHeader()">
+          <div class="aui-list-item-title">{{forum.displayName}}</div>
+      </div>
+  </li>
+  <li class="aui-list-item" style="padding-right:14px">
+      <div class="aui-media-list-item-inner">
+          <div class="aui-list-item-media">
+              <img src="../image/demo1.png">
+          </div>
+          <div class="aui-list-item-inner">
+              <div class="aui-list-item-text">
+                  <div class="aui-list-item-title">{{forum.childrenForums[0].displayName}}</div>
+              </div>
+              <div class="aui-list-item-text">{{forum.childrenForums[0].description}}</div>
+          </div>
+          <div class="aui-list-item-text">
+              <div class="aui-btn aui-btn-info" onclick="clickFollow()">关注</div>
+              <div class="aui-btn">已关注</div>
+          </div>
+      </div>
+  </li>
+  <li class="aui-list-item" style="padding-right:14px">
+      <div class="aui-media-list-item-inner">
+          <div class="aui-list-item-media">
+              <img src="../image/demo1.png">
+          </div>
+          <div class="aui-list-item-inner">
+              <div class="aui-list-item-text">
+                  <div class="aui-list-item-title">{{forum.childrenForums[1].displayName}}</div>
+              </div>
+              <div class="aui-list-item-text">{{forum.childrenForums[1].description}}</div>
+          </div>
+          <div class="aui-list-item-text">
+              <div class="aui-btn aui-btn-info">关注</div>
+          </div>
+      </div>
+  </li>
+  </div>
+</ul>
